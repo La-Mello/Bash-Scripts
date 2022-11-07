@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Author: Brian Kidiga
+# Date Created: 20/10/2022
+# Description: demonstration of file permissions
+
+exit 0
+

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+# Author: Brian Kidiga
+# Date Created : 20/10/2022
+# Last Modified: 20/10/2022
+
+# Description
+# Understanding how to write professional scripts
+
+# Usage
+# second_script
+
+# this is an inline comment
+# make script usefull insert author, date of creation,
+
+echo "Writting professional scripts"
+
+exit 0

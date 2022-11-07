@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Author: Brian 
+# Date : 20/10/2022
+# Last Modified: 20/10/2022
+
+# Description
+# creates a backup in ~/01 folder of all fles in the home dir
+
+# Usage:
+# backup_script
+
+tar -cvf ~/01/my_backup_"$(date +%d-%m-%Y_%H-%M-%S)".tar ~/* 2>/dev/null
+
+exit 0
