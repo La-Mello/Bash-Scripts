@@ -1,6 +1,7 @@
 #! /bin/bash
 
-echo $(date +"%H:%m:%S")
+echo "Date : $(Time +\"%H:%m:%S\")"
+
 
 exit 0
 
