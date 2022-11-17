@@ -18,5 +18,19 @@ l={1..5}
 echo "range list : $l"
 echo {1..5}
 
+#with alphabets
+echo "a -> j"
+echo {a..j}
+
+#with steps
+echo "1->100 steps 3"
+echo {1..100..3}
+echo ""
+
+#in reverse
+echo "10 -> -5"
+echo {10..-5}
+
+
 exit 0
 
