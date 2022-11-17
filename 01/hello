@@ -1,0 +1,11 @@
+#! /bin/bash
+
+#Author : Brian Kidiga
+#Date created: 17/11/2022
+#Date Modified : 17/11/2022
+#Description : a hello world program in bash
+#Usage : ./hello
+
+echo "Hello, ${USER,}'s world"
+
+exit 0
