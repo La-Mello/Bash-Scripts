@@ -1,0 +1,53 @@
+#! /bin/bash
+
+#Author : Brian kidiga
+#Date:17/11/2022
+#Last Modified:17/11/22 22:00PM
+
+#Description
+#a script to demonstrate range list trick
+#using the demonstration of a journal
+#create a
+	#folder to hold all months (Journal)
+		#subfolders representing each month of the day
+			#31 .txt files in each subfolder to represent each day
+
+#Usage:
+#./trick01
+
+echo ":-) started script"
+
+#creating the mainfolder
+mkdir Journal
+
+#moving into the journal folder
+cd Journal
+
+echo "Working under $(pwd)"
+
+#testing the brace expansion trick
+echo month{01..12}
+echo month{01..12}/day{01..31}.txt
+
+clear
+echo "Test successful"
+
+echo "Creating directories"
+mkdir month{01..12}
+
+echo "Directories successfully created.."
+
+echo "creating files"
+touch month{01..12}/day{01..31}.txt
+
+clear
+
+echo "Files created successfully"
+
+echo "You can access your files through $(pwd)"
+echo "Exiting script...."
+
+echo "Credit:Brian Kidiga"
+
+
+exit 0
