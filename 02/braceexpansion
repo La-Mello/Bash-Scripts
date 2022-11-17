@@ -1,0 +1,22 @@
+#! /bin/bash
+
+#Author : Brian Kidiga
+#Date : 17/11/22
+#Last modified:17/11/22
+
+#Description:
+#a script to demonstrate brace expansion by string and range lists
+
+#Usage:
+#./braceexpansion
+
+l={1,2,3,4,5}
+echo "string list : $l"
+echo {1,2,3,4,5}
+
+l={1..5}
+echo "range list : $l"
+echo {1..5}
+
+exit 0
+
