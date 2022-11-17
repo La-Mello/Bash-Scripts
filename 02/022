@@ -1,0 +1,25 @@
+#! /bin/bash
+
+#Author : Brian Kidiga
+#Date Created : 17/11/22
+#Last Modified : 17/11/22
+
+#Description :
+#a script to backup contents of the current directory in a .tar (zip) file
+
+#usage : 
+# ./backupscr
+
+echo "Hello $USER"
+
+currentdir=$(pwd)
+
+echo "You are currently in $currentdir"
+echo "Your backup will be in $currentdir"
+
+tar -cf $currentdir/backup_"$(date +%d%m%Y_%H:%M:%S)".tar currentdir/* 2>/dev/null
+
+echo "Back up finished successfully"
+echo "Thank You"
+
+exit 0

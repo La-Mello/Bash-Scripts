@@ -1,0 +1,22 @@
+#! /bin/bash
+
+#Author: Brian Kidiga
+#Date created:17/11/22
+#Last Modified:17/11/22
+
+#Description:
+#a script to display the current date and time of the system
+
+#Usage:
+# ./datetime
+
+dt=$(date +%d-%m-%Y)
+
+time=$(date +%H:%M:%S)
+
+
+echo "the date is $dt"
+echo "the time is $time"
+
+exit 0
+
