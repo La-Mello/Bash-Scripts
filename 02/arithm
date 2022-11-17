@@ -1,0 +1,32 @@
+#! /bin/bash
+
+#Author : Brian Kidiga
+#Date created: 17/11/22
+#Last Modified : 17/11/22
+
+#Description:
+#a demonstration of the working of arithmetic operations
+
+#Usage:
+#./arithm
+
+x=10
+y=2
+
+#mathematical addition
+echo "$x+$y=$((x+y))"
+
+#mathematical subtraction
+echo "$x-$y=$((x-y))"
+
+#mathematical division
+echo "$x/$y=$((x/y))"
+
+#modulus operation
+echo "$x%$y=$((x%y))"
+
+#exponential operation(raising an number the power of another
+echo "$x**$y=$((x**y))"
+
+exit 0
+
