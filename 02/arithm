@@ -22,6 +22,9 @@ echo "$x-$y=$((x-y))"
 #mathematical division
 echo "$x/$y=$((x/y))"
 
+#mathematical multiplication
+echo "$x*$y=$((x*y))"
+
 #modulus operation
 echo "$x%$y=$((x%y))"
 
