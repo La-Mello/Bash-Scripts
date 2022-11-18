@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Author: Brian 
+# Date : 10/10/2022
+# Last Modified: 18/111/2022
+
+# Description
+# a hello world script using shell
+
+# Usage:
+# our_first_script
+
 echo "Hello, world"
 
 exit 0
