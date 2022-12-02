@@ -9,6 +9,11 @@
 *  1-standard output device e.g. screen
 *  2-standard error
 
+* # const void *buff
+    represents the data to be written in double quotes
+
+* # size_t count
+    the size of the data to be written
 */
 
 #include<stdio.h>
@@ -16,7 +21,7 @@
 
 int main(){
 
-
+	write(1,"Hello world",5);
 
 return 0;
 }
