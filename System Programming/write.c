@@ -14,6 +14,7 @@
 
 * # size_t count
     the size of the data to be written
+* #Returns the amount of bytes it was able to write
 */
 
 #include<stdio.h>
@@ -21,7 +22,11 @@
 
 int main(){
 
-	write(1,"Hello world",5);
+	int n;
+	n=write(1,"Hello world",5);
+	printf("\nFirst call returned : %d\n",n);
+	n=write(1,"Hello world",11);
+	printf("\nSecond call returned :%d\n",n);
 
 return 0;
 }
