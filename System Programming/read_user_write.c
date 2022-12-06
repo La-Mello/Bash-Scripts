@@ -5,7 +5,10 @@
 #include<fcntl.h>
 
 /**
-a program that reads from a use and saves it in a file
+	a combination of read and write system calls on
+	different input based on file descriptors
+	0 and 3to write
+	a program that reads from a use and saves it in a file
 */
 int main(){
 
