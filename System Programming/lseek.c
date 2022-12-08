@@ -1,15 +1,14 @@
 /***
-* A program to demonstrate the open system call
-* used to write to a file descriptor
+* A program to demonstrate the lseek system call
+* Repositions read/write file offset
+* used to read from a file from a specified position
 
 * #Header files
 	<sys/types.h>
-	<sys/stat.h>
-	<fcntl.h>
+	<unistd.h>
 
-* syntax 
-	int open(const char *pathname,int flags); --if file exists
-	int open(const char *pathname,int flags,mode_t mode) --if doesnt exist
+* syntax
+	off_t lseek(int fd, off_t offset, int whence);
 
 * # File descriptors[fd] are three 0,1,2
 *  0-standard input device e.g. keyboard<stdin>
@@ -17,46 +16,47 @@
 *  2-standard error<stderr>
 *  3-File operations
 
-* #Returns the file descriptor of the file
+*whence
+	SEEK_CUR - current cursor position
+	SEEK_SET - position cursor at the beggining
+	SEEK_END - position cursor at the end
+
+* #Returns the offset/reposition positioned
 
 */
 
 #include<stdio.h>
 #include <unistd.h>
-
 //header files
-#include<sys/stat.h>
 #include<sys/types.h>
+#include<sys/stat.h>
 #include<fcntl.h>
 
 int main(){
 
-	int n,fd;
+	int n,fd,f1;
 	char buff[30];
 
-	fd=open("text.txt", O_RDONLY);//opens the file in read only
-	printf("%d\n",fd);
+	fd=open("seeking", O_RDWR);//opens the file in read  and write
 
-	n=read(fd,buff,30);//reading from the file first 30 characters
+//	f1=lseek(fd,10,SEEK_SET);//position pointer 10 characters from begginning
 
-	//last param is the permisions of the file
-	fd=open("created.txt", O_CREAT|O_WRONLY,0642);
-	//creates a new file in write only
-	//either creates a file or opens it
-	/*
-		since O_WRONLY overwrites the existing file if exists
-		we can use the switch
-			O_WRONLY|O_APPEND
-		to append the data
-	*/
+	f1=lseek(fd,-11,SEEK_END);//positions cursor at the end and come back 11 characters
 
-	write(1,buff,n);//outputting to stdout
+	printf("Pointer at %d\n",f1);
 
-	write(fd,buff,n);//writting to another file
+	read(fd,buff,10);
 
-	fd=open("text2.txt",O_WRONLY|O_APPEND);
+	write(1,buff,10);
 
-	write(fd,buff,n);//writting to an already existing file
+	printf("\n");
+
+	//place the cursor 10 characters from the current
+//	lseek(fd,10,SEEK_CUR);
+//	read(fd,buff,10);
+//	write(1,buff,10);
+
+
 return 0;
 }
 
