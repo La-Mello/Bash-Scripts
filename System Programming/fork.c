@@ -35,15 +35,15 @@ int main(){
 	if(pid == 0)//in child process
 	{
 		//in here we can add any code that willl be executed by the child process
-		for(int i=0;i<10;i++)
-			printf("%d+",i);
+//		for(int i=0;i<10;i++)
+//			printf("%d+",i);
 		printf("\nAm Child process with pid : %d\n",getpid());
 		printf("My parent's pid is : %d\n",getppid());
 	}else//in parent process
 	{
 		//in here we can add any code to be executed by parent only
-		for(int i=10;i>=0;i--)
-			printf("%d-",i);
+//		for(int i=10;i>=0;i--)
+//			printf("%d-",i);
 		printf("\nAm a Parent  pid : %d\n",getpid());
 		printf("My child PID : %d\n",pid);
 	}
