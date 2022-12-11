@@ -1,33 +1,27 @@
 /**
 	How to replace current process image using execl()
 
+	# Arguments
+	execl(PATH,COMMAND,ANY_OPTIONS|NULL);
 **/
 #include<stdio.h>
-#include<sys/types.h>
-#include<sys/wait.h>
 #include<unistd.h>
 
 int main(){
 
-	pid_t pid;
+	printf("Before execl();\n");
 
-	pid = fork();
+	//when control reaches here the whole process is replaced with the ls command
+//	execl("/bin/ls","ls","-l",NULL);
 
-	if(pid<0)
-		printf("Error : Operation failed\n");
+//	execl("/bin/pwd","pwd",NULL);
 
-	if(pid == 0){
+	printf("Current process PID:<%d>\n",getpid());
+	//to confirm that no new process is created but rather the running process is replaced
+	//the pid of the ps command will be same as of the current process
+	execl("/bin/ps","ps",NULL);//runs the ps command
 
-		printf("\nChild process Pid<%d>\n",getpid());
-		printf("My parent Pid<%d>\n",getppid());
-
-	}else{
-		printf("Parent process pid<%d>\n",getpid());
-		printf("My child Pid<%d>\n",pid);
-
-	}
-
-	printf("Out");
-
+	//never printed because the process'image was replaced
+	printf("After execl();");
 return 0;
 }
