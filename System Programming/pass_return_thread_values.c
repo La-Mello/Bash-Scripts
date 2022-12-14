@@ -1,5 +1,5 @@
 /***
-* A program to demonstrate how to pass and ruturn values from a thread
+* A program to demonstrate how to pass and return values from a thread
 
 * # A thread is a part of a process
    it exists within a process
@@ -26,6 +26,9 @@
 
 	# TO COMPILE USE THE lpthread library
 		i.e. gcc Thread.c -lpthread
+
+* pthread_exit("")
+	used to return anything from the thread to the main
 */
 
 
@@ -37,8 +40,13 @@
 //implicit declaration of the thread function
 void *thread_function(void *arg);
 
+//integer array to find sum for
+int nums[2]={1,2};
+
 //loop variables
 int i,j;
+
+void *returnv;
 
 int main(){
 
@@ -46,18 +54,15 @@ int main(){
 	//thread declaration
 	pthread_t thread_a;
 
-	//creation of thread
-	pthread_create(&thread_a,NULL,thread_function,NULL);
+	//creation of thread-->we pass the pointer to the array but typecast it to a void pointer
+	pthread_create(&thread_a,NULL,thread_function,(void *)nums);
 
 	//join method to make process wait for thread to finish first
-	pthread_join(thread_a,NULL);
+	//store the result of the thread function in sum by passing in the reference of it
+	pthread_join(thread_a,&returnv);
 
 	printf("\tInside main\n");
-	for(j=20;j<25;j++){
-		printf("%d\n",j);
-		sleep(1);//delays output by one sec
-	}
-//	printf("\n");
+	printf("Returned value : %s\n",(char *)returnv);
 return 0;
 }
 
@@ -66,9 +71,14 @@ return 0;
 */
 void *thread_function(void *arg){
 	printf("\tInside Thread\n");
-	for(i=0;i<10;i++){
-		printf("%d\n",i);
-		sleep(1);//delays output by one sec
-	}
-//	printf("\n");
+	//recieve argument and  cast it to a integer pointer
+	int *x=arg;
+
+	//CALCULATE SUM
+	int val = x[0] + x[1];
+
+	printf("Sum is %d\n",val);
+
+	pthread_exit("sum calculated");//exits running thread with a message
+//	pthread_exit((void *)val);
 }
