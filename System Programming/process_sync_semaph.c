@@ -12,6 +12,8 @@
 			#1. &s adress of semaphore variable
 			#2. Takes: 0(semaphore shared b2n threads) Nonzero(semaphore shared b2n processes)
 			#3. initial value of semaphore variable(1 semaphore is free, 0 semaphore is being used)
+			   ## depends on how many instances of the semaphore you want
+
 	sem_init(&s,0,1);
 
 	sem_wait() <=> almost similar to the wait() function
