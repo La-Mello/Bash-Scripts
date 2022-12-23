@@ -8,8 +8,8 @@
 
 		creates a unidirectional pipe
 
-		writing end fd[1] send data
-		reading end fd[0] read data
+		writing end fd[1] sending data
+		reading end fd[0] recieving data
 
 there will be two processes
 	the parent sends data to the child and the child displays the data
